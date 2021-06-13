@@ -1,0 +1,12 @@
+name: JumpDeItemDrop
+version: 1.0
+main: net.kunmc.lab.jumpdeitemdrop.JumpDeItemDrop
+api-version: 1.16
+commands:
+  JumpDeItem:
+    permission: JumpDeItem.c
+    description: このプラグインは、ジャンプするとランダムでアイテムが手に入るプラグインです。
+    usage: /JumpDeItem helpでコマンド一覧が確認できます。
+permissions:
+  JumpDeItem:
+    default: op
