@@ -26,7 +26,7 @@ public final class JumpDeItemDrop extends JavaPlugin {
 
         Material[] items = Material.values();
         for(int i=0;i < items.length;i++) {
-            if(!items[i].isAir()&&items[i].isItem()){
+            if(!items[i].isAir()&&items[i].isItem()&&items[i]!=Material.ENDER_EYE&&items[i]!=Material.ENDER_PEARL&&items[i]!=Material.BLAZE_ROD&&items[i]!=Material.BLAZE_POWDER&&items[i]!=Material.BLAZE_SPAWN_EGG&&items[i]!=Material.OBSIDIAN&&items[i]!=Material.END_GATEWAY&&items[i]!=Material.WATER_BUCKET&&items[i]!=Material.LAVA_BUCKET){
                 if (items[i].isBlock()) {
                     blockList.add(items[i]);
                 } else {
