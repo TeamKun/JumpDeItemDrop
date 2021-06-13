@@ -45,16 +45,16 @@ public class Command implements TabCompleter, @Nullable CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, org.bukkit.command.@NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if(!command.getName().equals("JumpDeItem"))
-            return false;
+            return true;
 
         //team関係コマンド
         if(args.length!=2&&args.length!=1){
             sender.sendMessage(ChatColor.RED+"[プラグイン]コマンドの形式が異なります。コマンドの一覧は/JumpDeItem helpで確認できます");
-            return false;
+            return true;
         }
 
 
-            if(args[0].equals("setJoinNumber")){
+            if(args.length==2&&args[0].equals("setJoinNumber")){
                 if(args[1].matches("[+-]?\\d*(\\.\\d+)?")){
                     if(Integer.parseInt(args[1])>=0 ){
                         JumpDeItemDrop.numberOfTeam = Integer.parseInt(args[1]);
@@ -65,14 +65,14 @@ public class Command implements TabCompleter, @Nullable CommandExecutor {
                 }else{
                     sender.sendMessage(ChatColor.RED+"[プラグイン]引数には数値を入れてください");
                 }
-                return false;
+                return true;
             }
 
 
         //その他のコマンド
         if(args.length!=1){
             sender.sendMessage(ChatColor.RED+"[プラグイン]コマンドの形式が異なります。コマンドの一覧は/JumpDeItem helpで確認できます");
-            return false;
+            return true;
         }
 
         if(args[0].equals("start")){
@@ -110,7 +110,7 @@ public class Command implements TabCompleter, @Nullable CommandExecutor {
             }else{
                 sender.sendMessage(ChatColor.RED+"[プラグイン]ゲームはすでに開始されています");
             }
-            return false;
+            return true;
         }
 
         if(args[0].equals("stop")){
@@ -125,7 +125,7 @@ public class Command implements TabCompleter, @Nullable CommandExecutor {
             }else{
                 sender.sendMessage(ChatColor.RED+"[プラグイン]ゲームは開始されていません");
             }
-            return false;
+            return true;
         }
 
 
@@ -141,10 +141,10 @@ public class Command implements TabCompleter, @Nullable CommandExecutor {
             sender.sendMessage(ChatColor.AQUA+"・/JumpDeItem help");
             sender.sendMessage("コマンドの一覧を表示します");
             sender.sendMessage(ChatColor.GOLD+"===================================");
-            return false;
+            return true;
         }
 
         sender.sendMessage(ChatColor.RED+"[プラグイン]コマンドの形式が異なります。コマンドの一覧は/JumpDeItem helpで確認できます");
-        return false;
+        return true;
     }
 }
